@@ -20,7 +20,7 @@ int main(){
     printf("\n----------Info Carro----------\n");
     printf("Modelo do Carro: %s\n", carro->modelo);
     printf("Ano do Carro: %d\n", carro->ano);
-    printf("Preço do Carro (ex: 20.000 - com o Ponto!!): %.3f\n", carro->preco);
+    printf("Preço do Carro: %.2f\n", carro->preco);
 
     free(carro);
 
