@@ -11,7 +11,7 @@ int main(){
     
     qtd_digitos = contar_digitos(n);
 
-    printf("O número %d possui %d dígitos.", n, qtd_digitos);
+    printf("O número %d possui %d dígitos.\n", n, qtd_digitos);
 
 
     return 0;
