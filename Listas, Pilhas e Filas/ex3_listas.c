@@ -1,7 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-
 typedef struct No {
     int valor;
     struct No* prox;
@@ -12,6 +11,7 @@ typedef struct Lista {
     No* fim;
 } Lista;
 
+int contagemElementos(Lista *lista);
 void inicializarLista(Lista* lista);
 No* criarNo(int valor);
 void inserirInicio(Lista* lista, int valor);
@@ -22,6 +22,7 @@ void liberarLista(Lista* lista);
 
 int main() {
     Lista lista;
+    int qtdElementos;
     inicializarLista(&lista);
 
     inserirInicio(&lista, 10);
@@ -32,8 +33,14 @@ int main() {
     exibir(&lista);
     inserirFinal(&lista, 30);
     exibir(&lista);
+ 
     remover(&lista, 20);
     exibir(&lista);
+    printf("\n");
+    
+    qtdElementos = contagemElementos(&lista);
+    
+    printf("A lista possui %d Elementos.\n\n", qtdElementos);
     
     liberarLista(&lista);
 
@@ -131,3 +138,26 @@ void exibir(Lista* lista) {
     }
     printf("\n");
 }
+
+int contagemElementos(Lista *lista){
+    No *atual = lista->inicio;
+    int qtd = 0;
+
+    while(atual != NULL){
+        qtd++;
+        atual = atual->prox;
+    }
+    return qtd;
+}
+
+void liberarLista(Lista* lista) {
+    No* atual = lista->inicio;
+    while (atual != NULL) {
+        No* temp = atual;
+        atual = atual->prox;
+        free(temp);
+    }
+    lista->inicio = NULL;
+    lista->fim = NULL;
+}
+

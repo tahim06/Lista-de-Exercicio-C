@@ -19,6 +19,7 @@ void inserirInicio(Lista* lista, int valor);
 void inserirFinal(Lista* lista, int valor);
 void remover(Lista* lista, int valor);
 void exibir(Lista* lista);
+void liberarLista(Lista* lista);
 
 int main() {
     Lista lista;
@@ -39,12 +40,10 @@ int main() {
     printf("\n");
     
     qtdElementos = contagemElementos(&lista);
-    if(qtdElementos == 0){
-        printf("Lista Vazia!\n\n");
-    }else{
-        printf("A lista possui %d Elementos.\n\n", qtdElementos);
-    }
-
+   
+    printf("A lista possui %d Elementos.\n\n", qtdElementos);
+    
+    liberarLista(&lista);
 
     return 0;
 }
